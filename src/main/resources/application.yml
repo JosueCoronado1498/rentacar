@@ -1,3 +1,8 @@
+rentacar:
+  branch:
+    name: Central
+    city: Bariloche
+
 spring:
   application:
     name: rentacar
