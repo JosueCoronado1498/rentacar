@@ -1,6 +1,7 @@
 package com.jcoronado.rentacar.rentals.model;
 
 import com.jcoronado.rentacar.common.enums.RentalStatus;
+import com.jcoronado.rentacar.common.model.BaseEntity;
 import com.jcoronado.rentacar.users.model.User;
 import com.jcoronado.rentacar.vehicles.model.Vehicle;
 import jakarta.persistence.*;
@@ -17,7 +18,7 @@ import java.time.LocalDate;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Rental {
+public class Rental extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

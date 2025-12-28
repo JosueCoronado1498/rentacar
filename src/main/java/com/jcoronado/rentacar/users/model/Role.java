@@ -1,6 +1,7 @@
 package com.jcoronado.rentacar.users.model;
 
 import com.jcoronado.rentacar.common.enums.RoleName;
+import com.jcoronado.rentacar.common.model.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,7 +13,7 @@ import lombok.Setter;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Role {
+public class Role extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

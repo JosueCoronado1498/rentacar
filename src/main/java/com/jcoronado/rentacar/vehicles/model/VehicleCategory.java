@@ -1,5 +1,6 @@
 package com.jcoronado.rentacar.vehicles.model;
 
+import com.jcoronado.rentacar.common.model.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import java.math.BigDecimal;
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class VehicleCategory {
+public class VehicleCategory extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
