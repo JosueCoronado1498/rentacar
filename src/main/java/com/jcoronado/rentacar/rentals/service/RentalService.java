@@ -7,6 +7,7 @@ import com.jcoronado.rentacar.rentals.repository.IRentalRepository;
 import com.jcoronado.rentacar.users.model.User;
 import com.jcoronado.rentacar.users.service.IUserService;
 import com.jcoronado.rentacar.vehicles.model.Vehicle;
+import com.jcoronado.rentacar.vehicles.repository.IVehicleRepository;
 import com.jcoronado.rentacar.vehicles.services.IVehicleService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,9 @@ public class RentalService implements IRentalService{
 
     @Autowired
     private IVehicleService vehicleService;
+
+    @Autowired
+    private IVehicleRepository vehicleRepository;
 
     @Override
     public Rental createRental(Long userId, Long vehicleId, LocalDate startDate, LocalDate endDate) {
@@ -68,7 +72,10 @@ public class RentalService implements IRentalService{
         Rental rental = rentalRepository.findById(rentalId).orElseThrow(() -> new EntityNotFoundException("Rental not found"));
 
         rental.setStatus(RentalStatus.FINISHED);
+        Vehicle vehicle = rental.getVehicle();
         rental.getVehicle().setStatus(VehicleStatus.AVAILABLE);
+
+        vehicleRepository.save(vehicle);
 
         return rental;
     }

@@ -11,4 +11,6 @@ public interface IVehicleCategoryRepository extends JpaRepository<VehicleCategor
 
     Optional<VehicleCategory> findByCategoryName(String categoryName);
 
+    boolean existsByCategoryNameIgnoreCase(String name);
+
 }
